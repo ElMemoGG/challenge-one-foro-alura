@@ -24,7 +24,7 @@ public class Respuesta {
     private Long id;
     private String mensaje;
     private LocalDateTime fecha;
-    private boolean solucionado;
+    //private boolean solucionado;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topico_id")
@@ -34,4 +34,9 @@ public class Respuesta {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    public void actualizarDatos(DatosRespuestaRespuesta datos) {
+        if(datos.mensaje() != null){
+            this.mensaje = datos.mensaje();
+        }
+    }
 }

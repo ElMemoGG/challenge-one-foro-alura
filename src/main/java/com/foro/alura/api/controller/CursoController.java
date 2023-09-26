@@ -3,6 +3,7 @@ package com.foro.alura.api.controller;
 
 import com.foro.alura.api.domain.curso.*;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,8 +17,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @RestController
+@ResponseBody
 @RequestMapping("/curso")
 @SecurityRequirement(name = "bearer-key")
+@Tag(name = "Curso", description = "")
 public class CursoController {
 
     @Autowired

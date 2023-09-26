@@ -8,11 +8,13 @@ import com.foro.alura.api.domain.topico.DatosRespuestaTopico;
 import com.foro.alura.api.domain.topico.TopicoRepository;
 import com.foro.alura.api.service.TopicoService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/topico")
 @SecurityRequirement(name = "bearer-key")
+@Tag(name = "Topico", description = "")
 public class TopicoController {
 
     @Autowired
@@ -31,7 +34,7 @@ public class TopicoController {
     private TopicoService topicoService;
 
     @PostMapping
-    public ResponseEntity<DatosRespuestaTopico> registrarMedico(@RequestBody @Valid DatosCrearTopico datosCrearTopico, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity<DatosRespuestaTopico> registrarTopico(@RequestBody @Valid DatosCrearTopico datosCrearTopico, UriComponentsBuilder uriComponentsBuilder){
         var response = topicoService.agregarTopico(datosCrearTopico);
         URI url = uriComponentsBuilder.path("/topico/{id}").buildAndExpand(response.id()).toUri();
         return ResponseEntity.created(url).body(response);
