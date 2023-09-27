@@ -1,9 +1,6 @@
 package com.foro.alura.api.controller;
 
-import com.foro.alura.api.domain.topico.DatosCrearTopico;
-import com.foro.alura.api.domain.topico.DatosDetalleTopico;
-import com.foro.alura.api.domain.topico.DatosRespuestaTopico;
-import com.foro.alura.api.domain.topico.Estatus;
+import com.foro.alura.api.domain.topico.*;
 import com.foro.alura.api.service.TopicoService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,13 +31,15 @@ class TopicoControllerTest {
     private MockMvc mvc;
 
     @MockBean
-    TopicoService topicoService;
+    private TopicoService topicoService;
 
     @Autowired
     private JacksonTester<DatosCrearTopico> crearTopicojacksonTester;
 
     @Autowired
     private JacksonTester<DatosRespuestaTopico> respuestaTopicojacksonTester;
+
+
 
 
     @Test
@@ -56,7 +55,7 @@ class TopicoControllerTest {
     }
 
     @Test
-    @DisplayName("deberia retornar estado http 200 cuando los datos ingresados son validos")
+    @DisplayName("deberia retornar estado http 201 cuando los datos ingresados son validos")
     @WithMockUser
     void registrarTopicoEsenario2() throws Exception {
         // give
