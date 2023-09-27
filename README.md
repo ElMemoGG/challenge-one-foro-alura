@@ -1,17 +1,24 @@
 <h1 align="center"> # Challenge foro alura </h1>
-<p align="center" >![foro-alura](https://github.com/ElMemoGG/challenge-one-foro-alura/assets/89111617/50f4304b-0ebc-4367-89d1-b4ef61e91ed0)</p>
+<p align="center"><img src="images/foro-alura.png" alt="foro" height="200px"></p>
+
 
 ## Descripción 
 
-Con la aplicación del hotel alura el usuario podrá:
-- Registrar un huésped y crear una reservación.
-- Ver los huéspedes y reservas.
-- Buscar entre las tablas de huéspedes y reservas.
-- Editar y eliminar reservas y huéspedes
+Con la API del foro alura el usuario podrá:
+- Agregar usuarios, cursos.
+- Abrir un nuevo tópico para discutir en el foro.
+- Agregar respuestas a los tópicos de los demás.
+- Administrar sus respuestas y tópicos.
 
 ## Tecnologías utilizadas
-- Java 11
-- Hibernate 5.6
-- Java Swing
-- MySql 8.0.26
-- ![foro-alura](https://github.com/ElMemoGG/challenge-one-foro-alura/assets/89111617/c94ab5be-2483-4da4-b971-992fafa989ef)
+- [Java](https://www.java.com/en/)
+- [Spring boot](https://spring.io/)
+- [MySql](https://www.mysql.com/)
+- [Insomnia](https://insomnia.rest/)
+- [Token JWT](https://jwt.io/)
+- [Springdoc](https://springdoc.org/)
+
+## Diagrama Entidad-Relación de la base de datos
+
+![diagrama-foro-alura2](https://github.com/ElMemoGG/challenge-one-foro-alura/assets/89111617/ab5070d5-f22c-438c-acd9-cc9fa119284d)
+
