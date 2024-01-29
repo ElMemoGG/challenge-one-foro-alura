@@ -1,6 +1,7 @@
 package com.foro.alura.api.domain.respuesta;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.foro.alura.api.domain.topico.Topico;
 import com.foro.alura.api.domain.usuario.Usuario;
 import jakarta.persistence.*;
@@ -30,6 +31,7 @@ public class Respuesta {
     @JoinColumn(name = "topico_id")
     private Topico topico;
 
+    /*@JsonManagedReference(value = "usuario_id")*/
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;

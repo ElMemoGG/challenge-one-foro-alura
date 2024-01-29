@@ -38,7 +38,7 @@ public class TopicoService {
 
 
     public DatosRespuestaTopico actualizarTopico(DatosRespuestaTopico datos, Long id){
-        checkDuplicate(datos);
+        //checkDuplicate(datos);
 
         var topico = topicoRepository.getReferenceById(id);
         topico.actualizarDatos(datos);

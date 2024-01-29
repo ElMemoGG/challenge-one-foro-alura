@@ -2,6 +2,7 @@ package com.foro.alura.api.domain.topico;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.foro.alura.api.domain.curso.Curso;
 import com.foro.alura.api.domain.usuario.Usuario;
 import jakarta.persistence.*;
@@ -28,6 +29,7 @@ public class Topico {
     private LocalDateTime fecha;
     @Enumerated(EnumType.STRING)
     private Estatus estatus;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")

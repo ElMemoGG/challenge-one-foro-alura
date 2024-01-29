@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @ResponseBody
@@ -37,9 +38,9 @@ public class CursoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DatosListadoCurso>>  listadoMedios(@PageableDefault(size = 10) Pageable paginacion){
+    public ResponseEntity<List<DatosListadoCurso>>  listadoMedios(){
         //return medicoRepository.findAll(paginacion).map(DatosListadoMedico::new);
-        return ResponseEntity.ok(cursoRepository.findAll(paginacion).map(DatosListadoCurso::new));
+        return ResponseEntity.ok(cursoRepository.findAll().stream().map(DatosListadoCurso::new).toList());
     }
 
     @GetMapping("/{id}")

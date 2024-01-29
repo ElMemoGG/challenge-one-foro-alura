@@ -73,7 +73,6 @@ public class RespuestaController {
         var respuesta = respuestaRepository.getReferenceById(id);
         respuesta.actualizarDatos(datosRespuestaRespuesta);
         return ResponseEntity.ok(new DatosRespuestaRespuesta(respuesta));
-
     }
 
     @DeleteMapping("/{id}")

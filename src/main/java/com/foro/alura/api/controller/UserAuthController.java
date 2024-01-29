@@ -35,15 +35,17 @@ public class UserAuthController {
 
     @PostMapping
     public ResponseEntity loginUser(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario){
+        System.out.println("entre");
         Authentication authToken = new UsernamePasswordAuthenticationToken(datosAutenticacionUsuario.email(), datosAutenticacionUsuario.password());
         var usuarioAutenticado = authenticationManager.authenticate(authToken);
-        var JWTtoken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
-        return ResponseEntity.ok(new DatosJWTToken(JWTtoken));
+        var usuario = (Usuario) usuarioAutenticado.getPrincipal();
+        var JWTtoken = tokenService.generarToken(usuario);
+        return ResponseEntity.ok(new DatosJWTToken(usuario.getId(), usuario.getName(), usuario.getEmail(), JWTtoken));
     }
 
     @PostMapping("/registro")
     public ResponseEntity registrarUser(@RequestBody @Valid DatosCreateUsuario datosCreateUsuario){
-        var usuario = new Usuario(datosCreateUsuario.name(), datosCreateUsuario.email(), datosCreateUsuario.password());
+        var usuario = new Usuario(null, datosCreateUsuario.name(), datosCreateUsuario.email(), datosCreateUsuario.password());
         return ResponseEntity.ok(autenticacionService.UserRegister(usuario));
     }
 

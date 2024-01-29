@@ -2,10 +2,7 @@ package com.foro.alura.api.domain.usuario;
 
 import com.foro.alura.api.domain.topico.Topico;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -27,16 +24,15 @@ public class Usuario implements UserDetails {
     private String email;
     private String password;
 
-        /*@OneToMany(fetch = FetchType.LAZY)
+    /*@OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "TOPICO_ID", referencedColumnName = "ID")
     private List<Topico> topicos;*/
 
-    public Usuario(String name, String email, String password) {
+  /*  public Usuario(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
-    }
-
+    }*/
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,4 +1,9 @@
 package com.foro.alura.api.infra.security;
 
-public record DatosJWTToken(String jwtToken) {
+public record DatosJWTToken(
+        Long id,
+        String nombre,
+        String email,
+        String jwtToken
+) {
 }
